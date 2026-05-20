@@ -1,0 +1,10 @@
+.# Arquivos de ambiente e senhas
+.env
+
+# Pastas de dependências e binários gerados
+/vendor
+/bin
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
