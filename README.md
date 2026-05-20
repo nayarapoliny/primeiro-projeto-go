@@ -1,6 +1,6 @@
 # 🚀 API em Go com PostgreSQL e Repository Pattern
 
-Uma API RESTful robusta e de alta performance desenvolvida em Go (Golang). Este projeto foi construído do zero com foco em boas práticas de engenharia de software, utilizando a biblioteca padrão da linguagem para roteamento e implementando uma arquitetura limpa e escalável.
+Uma API RESTful robusta e de alta performance desenvolvida em Go (Golang). Este projeto foi construído do zero com foco em boas práticas de engenharia de software, utilizando a biblioteca padrão da linguagem para roteamento e implementando uma arquitetura limpa, segura e escalável.
 
 ## ✨ Funcionalidades e Arquitetura
 
@@ -39,7 +39,7 @@ A arquitetura do projeto segue o *Standard Go Project Layout*:
 ├── docker-compose.yml           # Configuração do banco de dados
 ├── go.mod                       # Gerenciador de dependências
 └── README.md
-
+```
 
 ## 🚀 Como Rodar o Projeto
 
@@ -48,53 +48,62 @@ A arquitetura do projeto segue o *Standard Go Project Layout*:
 * Docker e Docker Desktop com integração WSL (para Windows)
 
 ### 1. Clonar o repositório
+
 ```bash
 git clone [https://github.com/nayarapoliny/primeiro-projeto-go.git](https://github.com/nayarapoliny/primeiro-projeto-go.git)
 cd primeiro-projeto-go
+```
 
 ### 2. Configurar Variáveis de Ambiente
-Crie um arquivo chamado .env na raiz do projeto e adicione a string de conexão do banco de dados:
-```bash
+Crie um arquivo chamado `.env` na raiz do projeto e adicione a string de conexão do banco de dados:
+
+```env
 DATABASE_URL=postgres://root:secretpassword@localhost:5432/primeiro_projeto_go?sslmode=disable
+```
 
 ### 3. Subir o Banco de Dados
 Inicie o contêiner do PostgreSQL em segundo plano:
+
 ```bash
-docker-compose up -d
+docker compose up -d
+```
 
 ### 4. Baixar Dependências
 Sincronize as bibliotecas do projeto:
+
 ```bash
 go mod tidy
+```
 
 ### 5. Iniciar o Servidor
 Execute a aplicação. O banco de dados e as tabelas serão sincronizados automaticamente:
+
 ```bash
 go run cmd/api/main.go
-
-O servidor estará rodando em http://localhost:8080.
+```
+O servidor estará rodando em `http://localhost:8080`.
 
 ## 🧪 Testando as Rotas (via Insomnia)
-###1. Health Check
-Método: GET
 
-URL: http://localhost:8080/api/health
+### 1. Health Check
+* **Método:** `GET`
+* **URL:** `http://localhost:8080/api/health`
 
-###2. Criar Usuário
-Método: POST
+### 2. Criar Usuário
+* **Método:** `POST`
+* **URL:** `http://localhost:8080/api/usuarios`
+* **Body (JSON):**
 
-URL: http://localhost:8080/api/usuarios
-
-Body (JSON):
-```bash
+```json
 {
 	"nome": "Teste",
 	"email": "teste@email.com"
 }
+```
 
-###3. Listar Usuários
-Método: GET
+### 3. Listar Usuários
+* **Método:** `GET`
+* **URL:** `http://localhost:8080/api/usuarios`
 
-URL: http://localhost:8080/api/usuarios
-
-Desenvolvido com 💜 por Nay .
+---
+Desenvolvido com 💜 por Nay.
